@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<body>
+    <h1>Random Quote</h1>
+    <p id="quote">Click the button to get a quote!</p>
+    <button onclick="fetchQuote()">Get Quote</button>
+
+    <script>
+        async function fetchQuote() {
+            const response = await fetch('/quote');
+            const data = await response.json();
+            document.getElementById('quote').textContent = data.quote;
+        }
+    </script>
+</body>
+</html>
