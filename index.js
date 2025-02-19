@@ -9,7 +9,8 @@ const router = new Router();
 
 async function getRandomQuote() {
     try {
-        const fileContent = await fs.readFile("quotes.txt", "utf-8");
+        const filePath = path.join(__dirname, "data", "quotes.txt");
+        const fileContent = await fs.readFile(filePath, "utf-8");
         const quotes = fileContent.split("\n").filter(q => q.trim() !== "");
         if (quotes.length === 0) throw new Error("No quotes available");
         return quotes[Math.floor(Math.random() * quotes.length)];
