@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote Generator</title>
+    <title>The Quotenator!!! (in the voice of Doofenshmirtz)</title>
+    <style>
+        h1, p, label {
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+
+        p {
+            width: 65%;
+            min-height: 45px;
+            background-color: lightgray;
+            border: 6px solid #000000;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            margin: 0 auto;
+            word-wrap: break-word;
+        }
+
+
+        label, button {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #mainBtn {
+            width: 60%;
+            height: 50px;
+            font-size: 1.5em;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Random Quote</h1>
-    <p id="quote">Click the button to get a quote!</p>
-    
+    <p id="quote">Click the button below to activate &nbsp;<em>THE QUOTENATOR!!!</em></p>
+
     <label>
         <input type="checkbox" id="german"> Include German Quotes
     </label>
@@ -17,18 +54,19 @@
         <input type="checkbox" id="nsfw"> Include NSFW Quotes
     </label>
     <br>
-    
-    <button onclick="fetchQuote()">Get Quote</button>
+
+    <button id="mainBtn" onclick="fetchQuote()">Get Quote</button>
 
     <script>
         async function fetchQuote() {
             const german = document.getElementById("german").checked;
             const nsfw = document.getElementById("nsfw").checked;
-            
+
             const response = await fetch(`/quote?german=${german}&nsfw=${nsfw}`);
             const data = await response.json();
             document.getElementById('quote').textContent = data.quote;
         }
     </script>
 </body>
+
 </html>
