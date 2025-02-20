@@ -8,11 +8,24 @@
 <body>
     <h1>Random Quote</h1>
     <p id="quote">Click the button to get a quote!</p>
+    
+    <label>
+        <input type="checkbox" id="german"> Include German Quotes
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" id="nsfw"> Include NSFW Quotes
+    </label>
+    <br>
+    
     <button onclick="fetchQuote()">Get Quote</button>
 
     <script>
         async function fetchQuote() {
-            const response = await fetch('/quote');
+            const german = document.getElementById("german").checked;
+            const nsfw = document.getElementById("nsfw").checked;
+            
+            const response = await fetch(`/quote?german=${german}&nsfw=${nsfw}`);
             const data = await response.json();
             document.getElementById('quote').textContent = data.quote;
         }
