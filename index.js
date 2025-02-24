@@ -18,7 +18,7 @@ async function getQuotesFromFile(filename) {
     }
 }
 
-async function getRandomQuote(includeGerman, includeNSFW) {
+async function getRandomQuote(includeGerman, includeNSFW, includeEmil) {
     let quotes = await getQuotesFromFile("baseQuotes.txt");
 
     if (includeGerman) {
@@ -31,6 +31,11 @@ async function getRandomQuote(includeGerman, includeNSFW) {
         quotes = quotes.concat(nsfwQuotes);
     }
 
+    if (includeEmil) {
+        const emilQuotes = await getQuotesFromFile("emilQuotes.txt");
+        quotes = quotes.concat(emilQuotes);
+    }
+
     if (quotes.length === 0) {
         return "No quotes available.";
     }
@@ -39,16 +44,17 @@ async function getRandomQuote(includeGerman, includeNSFW) {
 }
 
 router.get("/quote", async (ctx) => {
-    const includeGerman = ctx.query.german === "true";
-    const includeNSFW = ctx.query.nsfw === "true";
+    let includeGerman = ctx.query.german === "true";
+    let includeNSFW = ctx.query.nsfw === "true";
+    let includeEmil = ctx.query.emil == "true";
 
     ctx.set("Content-Type", "application/json");
-    ctx.body = { quote: await getRandomQuote(includeGerman, includeNSFW) };
+    ctx.body = { quote: await getRandomQuote(includeGerman, includeNSFW, includeEmil) };
 });
 
 app.use(router.routes()).use(router.allowedMethods());
 app.use(serve(path.join(__dirname, "public")));
 
 app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+    console.log("monke");
 });

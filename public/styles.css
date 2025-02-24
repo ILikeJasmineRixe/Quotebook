@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: #292c35;
+    color: white;
+}
+
+h1 {
+    transition: color 0.3s ease;
+}
+
+body.dark h1 {
+    color: #f1c40f;
+}
+
+p {
+    width: 80%;
+    height: 15vh;
+    max-width: 600px;
+    min-height: 50px;
+    background-color: white;
+    border: 4px solid #000;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: clamp(1em, 2vw, 1.5em);
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark p {
+    background-color: #444;
+    color: white;
+    border-color: white;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+#mainBtn {
+    width: 80%;
+    max-width: 300px;
+    height: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#mainBtn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+body.dark #mainBtn {
+    background-color: #f39c12;
+    color: black;
+}
+
+/* Dark Mode Toggle */
+.darkmode-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(24px);
+}
+
+/* Credit to https://codepen.io/Umer_Farooq/pen/eYJgKGN */
