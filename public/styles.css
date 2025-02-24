@@ -18,13 +18,15 @@ body.dark {
     color: white;
 }
 
-h1 {
+h1, h5 {
     transition: color 0.3s ease;
 }
 
-body.dark h1 {
+body.dark h1, body.dark h5 {
     color: #f1c40f;
 }
+
+
 
 p {
     width: 80%;
