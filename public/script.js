@@ -13,7 +13,7 @@
 
 function adjustFontSize() {
     let quoteSpace = document.getElementById("quote");
-    let fontSize = 36; // Starting font size
+    let fontSize = 34; // Starting font size
     quoteSpace.style.fontSize = fontSize + "px";
 
     // Decrease font size until it fits
