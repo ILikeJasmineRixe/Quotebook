@@ -49,3 +49,5 @@ checkbox.addEventListener("change", () => {
         localStorage.setItem("darkMode", "False");
     }
 });
+
+let beans = "beans.png";
