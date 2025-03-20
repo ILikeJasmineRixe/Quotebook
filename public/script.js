@@ -26,11 +26,12 @@ function adjustFontSize() {
 
 // THE QUOTENATORQ!!!
 async function fetchQuote() {
+    let isBase = document.getElementById("base").checked;
     let isGerman = document.getElementById("german").checked;
     let isNsfw = document.getElementById("nsfw").checked;
     let isEmil = document.getElementById("emil").checked;
 
-    const response = await fetch(`/quote?german=${isGerman}&nsfw=${isNsfw}&emil=${isEmil}`);
+    const response = await fetch(`/quote?base=${isBase}&german=${isGerman}&nsfw=${isNsfw}&emil=${isEmil}`);
     const data = await response.json();
     document.getElementById('quote').textContent = data.quote;
     adjustFontSize();

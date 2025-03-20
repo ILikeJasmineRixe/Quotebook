@@ -18,8 +18,13 @@ async function getQuotesFromFile(filename) {
     }
 }
 
-async function getRandomQuote(includeGerman, includeNSFW, includeEmil) {
-    let quotes = await getQuotesFromFile("baseQuotes.txt");
+async function getRandomQuote(includeBase, includeGerman, includeNSFW, includeEmil) {
+    let quotes = [];
+
+    if (includeBase) {
+        const baseQuotes = await getQuotesFromFile("baseQuotes.txt");
+        quotes = quotes.concat(baseQuotes);
+    }
 
     if (includeGerman) {
         const germanQuotes = await getQuotesFromFile("germanQuotes.txt");
@@ -44,12 +49,13 @@ async function getRandomQuote(includeGerman, includeNSFW, includeEmil) {
 }
 
 router.get("/quote", async (ctx) => {
+    let includeBase = ctx.query.base === "true";
     let includeGerman = ctx.query.german === "true";
     let includeNSFW = ctx.query.nsfw === "true";
     let includeEmil = ctx.query.emil == "true";
 
     ctx.set("Content-Type", "application/json");
-    ctx.body = { quote: await getRandomQuote(includeGerman, includeNSFW, includeEmil) };
+    ctx.body = { quote: await getRandomQuote(includeBase, includeGerman, includeNSFW, includeEmil) };
 });
 
 app.use(router.routes()).use(router.allowedMethods());
