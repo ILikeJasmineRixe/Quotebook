@@ -1,9 +1,13 @@
 // DARK MODE TOGGLING
     let darkMode = localStorage.getItem("darkMode");
+    const audio = new Audio("lightmode.mp3");
+    audio.loop = true;
 
     if (darkMode === "True") {
         document.body.classList.add("dark");
         document.getElementById("checkbox").checked = true;
+    } else {
+        audio.play();
     }
     function develoeperToolsHehe() {
         localStorage.removeItem("darkMode");
@@ -13,14 +17,14 @@
 
 function adjustFontSize() {
     let quoteSpace = document.getElementById("quote");
-    let fontSize = 34; // Starting font size
+    let fontSize = 34;
     quoteSpace.style.fontSize = fontSize + "px";
 
-    // Decrease font size until it fits
+    //dEcrease font until it fits on screen
     while (quoteSpace.scrollHeight > quoteSpace.clientHeight || quoteSpace.scrollWidth > quoteSpace.clientWidth) {
         fontSize--;
         quoteSpace.style.fontSize = fontSize + "px";
-        if (fontSize <= 12) break; // Prevents text from getting too small
+        if (fontSize <= 12) break;
     }
 }
 
@@ -41,13 +45,15 @@ document.addEventListener("DOMContentLoaded", adjustFontSize);
 
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
-
     if (checkbox.checked) {
         document.body.classList.add("dark");
         localStorage.setItem("darkMode", "True");
+        audio.pause(); // Stop audio when dark mode is enabled and the user becomes a good human
+        audio.currentTime = 0;
     } else {
         document.body.classList.remove("dark");
         localStorage.setItem("darkMode", "False");
+        audio.play(); // I hate lightmode
     }
 });
 
