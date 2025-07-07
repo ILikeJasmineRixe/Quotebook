@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Quotenator!!!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Quotenator!!! </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <!-- META Tags for better results on search engines / search queries-->
+    <meta
+      name="description"
+      content="My silly quotebook"
+    />
+    <meta name="author" content="ILikeJasmineRice" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="”robots”" content="index, follow" />
+    <!-- Open Graph Protocol for better results on social media -->
+    <meta property="og:title" content="The Quotenator!" />
+    <meta
+      property="og:description"
+      content="My very silly quotebook, with quotes from various sources."
+    />
+    <meta property="og:url" content="https://quotes.legitbeanstore.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Quotenator!" />
+    <meta property="og:locale" content="en_US" />
+  </head>
 
-<body>
+  <body>
     <div class="darkmode-container">
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <span class="ball"></span>
-        </label>
+      <input type="checkbox" class="checkbox" id="checkbox" />
+      <label for="checkbox" class="checkbox-label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <span class="ball"></span>
+      </label>
     </div>
 
     <h1>The Quotenator!</h1>
@@ -24,26 +45,38 @@
     <p id="quote"><em>"Tee Hee" - Quoteman 1999</em></p>
 
     <div class="checkbox-container">
-        <label>
-            <input type="checkbox" id="base" checked> Include Base Quotes
-        </label>
-        <label>
-            <input type="checkbox" id="german"> Include German Quotes
-        </label>
-        <label>
-            <input type="checkbox" id="nsfw"> Include NSFW Quotes
-        </label>
-        <label>
-            <input type="checkbox" id="emil"> Include Emil's Quotebook
-        </label>
+      <label>
+        <input type="checkbox" id="base" checked /> Include Base Quotes
+      </label>
+      <label>
+        <input type="checkbox" id="german" /> Include German Quotes
+      </label>
+      <label> <input type="checkbox" id="nsfw" /> Include NSFW Quotes </label>
+      <label>
+        <input type="checkbox" id="emil" /> Include Emil's Quotebook
+      </label>
     </div>
 
     <button id="mainBtn" onclick="fetchQuote()">Get Quote</button>
 
-    <a href="https://github.com/ILikeJasmineRixe/Quotebook" class="github-logo" target="_blank">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" />
+    <a
+      href="https://github.com/ILikeJasmineRixe/Quotebook"
+      class="github-logo"
+      target="_blank"
+    >
+      <img
+        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        alt="GitHub"
+      />
     </a>
-    
-    <h6 class="creatorTag"><em><a class="creatorTag" href="https://github.com/ILikeJasmineRixe">By the creator of Legit Bean Store</a></em></h6>
+
+    <h6 class="creatorTag">
+      <em
+        ><a class="creatorTag" href="https://github.com/ILikeJasmineRixe"
+          >By the creator of Legit Bean Store</a
+        ></em
+      >
+    </h6>
     <script src="script.js"></script>
-</body>
+  </body>
+</html>
