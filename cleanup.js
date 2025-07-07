@@ -1,7 +1,7 @@
 // Import the file system module
 const fs = require('fs');
 
-const fileLocation = 'data/nsfwQuotes.txt';
+const fileLocation = './new.txt';
 
 // Read the file contents
 fs.readFile(fileLocation, 'utf8', (error, fileContent) => {
